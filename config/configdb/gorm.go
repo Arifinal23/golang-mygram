@@ -10,9 +10,9 @@ import (
 )
 
 func New() (*gorm.DB, error) {
-	dsn := newPGConfig().String()
+	dsn := "host=localhost user=postgres password=Ari23 dbname=mygram port=5432 sslmode=disable TimeZone=Asia/Jakarta"
 
-	db, err := gorm.Open(postgres.Open(dsn))
+	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
 		return nil, err
 	}
